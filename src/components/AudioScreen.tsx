@@ -4,15 +4,14 @@ import "./audioScreen.css";
 
 interface Track {
   id: number;
-  label: string;
   file: string;
 }
 
 const tracks: Track[] = [
-  { id: 1, label: "Écouter", file: "/Premier.mp3" },
-  { id: 2, label: "Écouter", file: "/Deuxieme.mp3" },
-  { id: 3, label: "Écouter", file: "/Troisieme.mp3" },
-  { id: 4, label: "Écouter", file: "/Quatrieme.mp3" },
+  { id: 1, file: "/Premier.mp3" },
+  { id: 2, file: "/Deuxieme.mp3" },
+  { id: 3, file: "/Troisieme.mp3" },
+  { id: 4, file: "/Quatrieme.mp3" },
 ];
 const AudioScreen: React.FC = () => {
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
@@ -58,7 +57,7 @@ const AudioScreen: React.FC = () => {
         <div key={track.id} className="track">
           <span>{track.id}</span>
           <button onClick={() => handleTogglePlay(index)}>Ecouter</button>
-          <button onClick={() => handleRestart(index)}>{"<<"}</button>
+          <button onClick={() => handleRestart(index)}>{"⟲"}</button>
           <audio
             // @ts-ignore
             ref={(el) => (audioRefs.current[index] = el)}

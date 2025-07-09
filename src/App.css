@@ -1,14 +1,14 @@
-.fade-enter {
-  opacity: 0;
+#root {
+  margin: auto;
 }
-.fade-enter-active {
+.screen {
+  transition: opacity 0.5s ease;
+}
+
+.fade-in {
   opacity: 1;
-  transition: opacity 500ms;
 }
-.fade-exit {
-  opacity: 1;
-}
-.fade-exit-active {
+
+.fade-out {
   opacity: 0;
-  transition: opacity 500ms;
 }
