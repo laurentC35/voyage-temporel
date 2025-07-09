@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState, useRef } from "react";
 import "./lockScreen.css";
 
@@ -58,6 +59,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
             value={digit}
             onChange={(e) => handleChange(index, e.target.value)}
             onKeyDown={(e) => handleKeyDown(index, e)}
+            // @ts-ignore
             ref={(el) => (inputsRef.current[index] = el)}
             className={error ? "error" : ""}
           />

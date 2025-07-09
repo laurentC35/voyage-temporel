@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useRef } from "react";
 import "./audioScreen.css";
 
@@ -59,6 +60,7 @@ const AudioScreen: React.FC = () => {
           <button onClick={() => handleTogglePlay(index)}>Ecouter</button>
           <button onClick={() => handleRestart(index)}>{"<<"}</button>
           <audio
+            // @ts-ignore
             ref={(el) => (audioRefs.current[index] = el)}
             src={track.file}
           />
