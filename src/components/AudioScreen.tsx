@@ -8,10 +8,10 @@ interface Track {
 }
 
 const tracks: Track[] = [
-  { id: 1, file: "/Premier.mp3" },
-  { id: 2, file: "/Deuxieme.mp3" },
-  { id: 3, file: "/Troisieme.mp3" },
-  { id: 4, file: "/Quatrieme.mp3" },
+  { id: 1, file: `${import.meta.env.BASE_URL}Premier.mp3` },
+  { id: 2, file: `${import.meta.env.BASE_URL}Deuxieme.mp3` },
+  { id: 3, file: `${import.meta.env.BASE_URL}Troisieme.mp3` },
+  { id: 4, file: `${import.meta.env.BASE_URL}Quatrieme.mp3` },
 ];
 const AudioScreen: React.FC = () => {
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
