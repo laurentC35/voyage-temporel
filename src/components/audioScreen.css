@@ -1,0 +1,18 @@
+.audioscreen {
+  text-align: center;
+  padding: 2rem;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.track button {
+  font-size: 1.2rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
