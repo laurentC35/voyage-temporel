@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./audioScreen.css";
+
+const listen = "Écouter";
+const pause = "Pause"
 
 interface Track {
   id: string;
@@ -17,6 +20,8 @@ const tracks: Track[] = [
 const AudioScreen: React.FC = () => {
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
 
+  const [labels, setLabels] = useState([listen,listen,listen,listen]);
+
   const handleTogglePlay = (index: number) => {
     const selectedAudio = audioRefs.current[index];
 
@@ -26,6 +31,8 @@ const AudioScreen: React.FC = () => {
     if (!selectedAudio.paused) {
       selectedAudio.pause();
       selectedAudio.currentTime = 0;
+      
+      setLabels(prev => prev.map((v,i)=>(i === index ? listen :  v)))
     } else {
       // Arrêter les autres pistes
       audioRefs.current.forEach((audio, i) => {
@@ -34,6 +41,7 @@ const AudioScreen: React.FC = () => {
           audio.currentTime = 0;
         }
       });
+      setLabels(prev => prev.map((_,i)=>(i !== index ? listen : pause)))
       selectedAudio.play();
     }
   };
@@ -57,7 +65,7 @@ const AudioScreen: React.FC = () => {
       {tracks.map((track, index) => (
         <div key={track.id} className="track">
           <span>{track.id}<sup>{track.supId}</sup></span>
-          <button onClick={() => handleTogglePlay(index)}>Ecouter</button>
+          <button onClick={() => handleTogglePlay(index)}>{labels[index]}</button>
           <button onClick={() => handleRestart(index)}>{"⟲"}</button>
           <audio
             // @ts-ignore
