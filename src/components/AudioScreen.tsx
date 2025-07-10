@@ -3,15 +3,16 @@ import React, { useRef } from "react";
 import "./audioScreen.css";
 
 interface Track {
-  id: number;
+  id: string;
+  supId: string;
   file: string;
 }
 
 const tracks: Track[] = [
-  { id: 1, file: `${import.meta.env.BASE_URL}Premier.mp3` },
-  { id: 2, file: `${import.meta.env.BASE_URL}Deuxieme.mp3` },
-  { id: 3, file: `${import.meta.env.BASE_URL}Troisieme.mp3` },
-  { id: 4, file: `${import.meta.env.BASE_URL}Quatrieme.mp3` },
+  { id: "1",supId:" er", file: `${import.meta.env.BASE_URL}Premier.mp3` },
+  { id: "2",supId:"ème", file: `${import.meta.env.BASE_URL}Deuxieme.mp3` },
+  { id: "3",supId:"ème", file: `${import.meta.env.BASE_URL}Troisieme.mp3` },
+  { id: "4",supId:"ème", file: `${import.meta.env.BASE_URL}Quatrieme.mp3` },
 ];
 const AudioScreen: React.FC = () => {
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
@@ -55,7 +56,7 @@ const AudioScreen: React.FC = () => {
       <h2>Voyage Musical</h2>
       {tracks.map((track, index) => (
         <div key={track.id} className="track">
-          <span>{track.id}</span>
+          <span>{track.id}<sup>{track.supId}</sup></span>
           <button onClick={() => handleTogglePlay(index)}>Ecouter</button>
           <button onClick={() => handleRestart(index)}>{"⟲"}</button>
           <audio
