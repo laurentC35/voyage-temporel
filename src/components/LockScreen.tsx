@@ -36,7 +36,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
 
   const handleSubmit = () => {
     const enteredCode = code.join("");
-    const correctCode = "2969"; // Tu peux changer ici le code secret
+    const correctCode = "0227"; // Tu peux changer ici le code secret
 
     if (enteredCode === correctCode) {
       onUnlock();
